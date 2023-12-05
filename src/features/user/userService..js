@@ -1,5 +1,6 @@
 import axios from "axios";
 import { base_url, config } from "../../util/axiosConfig";
+import { useState } from "react";
 const register = async(userData)=>{
     const response = await axios.post(`${base_url}user/register`, userData);
     if(response.data){
@@ -11,6 +12,7 @@ const login = async(userData)=>{
     const response = await axios.post(`${base_url}user/login`, userData);
     if (response.data) {
         localStorage.setItem("customer", JSON.stringify(response.data));
+        return  response.data
       }
 }
 
@@ -31,6 +33,7 @@ const addToCart = async (cartData) => {
 }
 
 const getCart = async () => {
+    console.log(config ,'config')
     const response = await axios.get(`${base_url}user/cart`, config);
     if (response.data) {
         return response.data
@@ -95,9 +98,15 @@ const resetPass = async(data) =>{
       }
 }
 
-
+const emptyCart = async () =>{
+    console.log("dd")
+    const response = await axios.delete(`${base_url}user/empty` ,config)
+    if(response.data) {
+        return response.data
+    }
+}
 
 export const authService ={
     register,login,getUserWishlist,addToCart,getCart ,removeProductFromCart, 
-    updateProductFromCart,createOrder , getUserOrders,updateUser , forgetPassToken , resetPass 
+    updateProductFromCart,createOrder , getUserOrders,updateUser , forgetPassToken , resetPass ,emptyCart
 }

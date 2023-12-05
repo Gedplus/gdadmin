@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import Container from '../components/Container';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { useEffect } from 'react';
 import * as yup from "yup"
-import { createAnOrder } from '../features/user/userSlice';
+import { createAnOrder, emptyCartu, numfac } from '../features/user/userSlice';
+import { AddBonCommande, AddBonCommandeEntéte, Switch,  getNumFacture } from '../util/api';
 
 const shippingSchema = yup.object().shape({
     firstName: yup
@@ -26,11 +27,16 @@ const shippingSchema = yup.object().shape({
 const Checkout =() =>{
 const dispatch = useDispatch()
 const userCartState = useSelector(state => state.auth.cartProducts)
-console.log(userCartState)
+const authState = useSelector(state => state.auth )
+console.log("cart" ,authState?.user?._id)
+const [num , setNum] = useState([])
+const navigate  = useNavigate()
 const [total, setTotal]= useState(null)
 const [shippingInfo , setShippingInfo]= useState(null)
 const [payementInfo , setPayementInfo]= useState({razorpayOrderId:"1",razorpayPayementId:"1"})
 const [cartProductState , setCartProductState]= useState([])
+const authState1 = useSelector(state => state?.auth )
+console.log(userCartState,"userCartState")
 useEffect (() => {
     let sum = 0;
     for (let index =0 ; index < userCartState?.length; index ++){
@@ -39,6 +45,13 @@ useEffect (() => {
     }    setTotal(sum)  
 },[userCartState])
  
+useEffect(() =>{
+
+    if(authState?.orderedProduct  !== null && authState?.orderedProduct?.success == true){
+navigate('/my-orders')
+    }
+},[authState])
+
 useEffect(() => {
     let items = []
     for(let index=0 ; index< userCartState?.length; index++){
@@ -49,6 +62,19 @@ useEffect(() => {
 
 )
 
+useEffect(() => {
+    dispatch(numfac())
+},[]
+
+)
+useEffect(() => {
+    setNum(Number(authState1?.numfac?.[0]?.valeur) + 1)
+},[]
+
+)
+console.log("numFac",num)
+
+console.log( new Date().toLocaleString(), "date")
 
 
 
@@ -63,17 +89,39 @@ const formik = useFormik({
         pincode: "",
         other:"",
     },
+  
     validationSchema: shippingSchema,
     onSubmit: (values) => {
         
 setShippingInfo(values)
         console.log(shippingInfo,"shippingInfo")
+
 setTimeout(()=>{
-    dispatch(createAnOrder({totalPrice:total ,totalPriceAfterDiscount:total , orderItems:cartProductState,  payementInfo , shippingInfo:values}))
+   
+    AddBonCommandeEntéte ( {codcli:authState?.user?._id, raisoc:`${values?.firstName}" "${ values?.lastName}` , datfac: new Date().toLocaleString()})
+},300)
+
+setTimeout(()=>{
+    for(let index=0 ; index< userCartState?.length; index++){ 
+        AddBonCommande ({numfac:num.toString(),numlig:index ,codeArt:userCartState[index]?.productId?.codeArt , quantity:userCartState[index].quantity ,desart:userCartState[index]?.productId?.title,datfac:new Date().toLocaleString() ,priuni:userCartState[index]?.productId?.price })
+    }
+   
+},300)
+setTimeout(()=>{
+  
+    dispatch(emptyCartu())
+},300)
+setTimeout(()=>{
+  
+    Switch()
 },300)
 
 
+setTimeout(()=>{
+    dispatch(createAnOrder({totalPrice:total ,totalPriceAfterDiscount:total , orderItems:cartProductState,  payementInfo , shippingInfo:values}))
 
+ 
+},2000)
 
 
     },

@@ -9,12 +9,14 @@ import { deleteCartProduct, getUserCart, updateCartProduct } from '../features/u
 const Cart = () => {
     const dispatch = useDispatch();
     const [quantity, setQuantity]= useState(null)
+    console.log(quantity,"eee")
     const [total, setTotal]= useState(null)
     const userCartState = useSelector(state => state.auth.cartProducts)
+
     useEffect(()=>{
         dispatch(getUserCart())
     },[])
-    console.log(userCartState) 
+
 
     useEffect(()=>{
         if(quantity !== null){
@@ -73,7 +75,7 @@ useEffect (() => {
         </div>
         <div className='cart-col-3 d-flex align-items-center gap-15'>
         <div>
-        <input className='form-control' type='number' name='' id='' min={1} max={10}  value={quantity?.newQuantity ? quantity?.newQuantity : item?.quantity} onChange={(e)=> {setQuantity({cartItemId:item?._id, newQuantity:e.target.value})}}/>
+        <input className='form-control' type='number' name='' id='' min={1} max={10}  value={ quantity?.cartItemId == item?._id && quantity?.newQuantity ? quantity?.newQuantity : item?.quantity} onChange={(e)=> {setQuantity({cartItemId:item?._id, newQuantity:e.target.value})}}/>
         
         </div>
         <div>

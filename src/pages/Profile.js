@@ -36,7 +36,11 @@ const Profile = () =>{
         validationSchema: profileSchema,
         onSubmit: (values) => {
 dispatch(updateProfile(values))
-setEdit(false)
+setTimeout(()=>{
+   
+  setEdit(true)
+},500)
+
         },
       });
 

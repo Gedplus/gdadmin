@@ -6,16 +6,27 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { array } from 'yup';
 import { getAProduct } from '../features/products/productSlice';
+import { getUserCart } from '../features/user/userSlice';
 const Header = () => {
   const dispatch =useDispatch()
   const [paginate, setPaginate] = useState(true);
   const userCartState = useSelector(state => state?.auth?.cartProducts)
-  const authState = useSelector(state => state?.auth )
+
+  const authState1 = useSelector(state => state?.auth )
   const productState = useSelector(state => state?.product?.product )
   const [productopt , setProductOpt] =useState([])
   const [total, setTotal]= useState(null)
+  const [authState , setauthState] = useState()
+
   const navigate = useNavigate()
-  console.log(authState)
+
+
+  useEffect(() => {
+
+    setauthState(authState1)
+    }
+    ,[authState1])
+    console.log(authState1)
   useEffect (() => {
     let sum = 0;
     for (let index =0 ; index < userCartState?.length; index ++){
@@ -34,6 +45,7 @@ setProductOpt(data)
 
 },[productState])
 
+console.log(userCartState ,'sss')
 
 const handleLogout = () =>{
   localStorage.clear()
@@ -91,7 +103,7 @@ dispatch(getAProduct(selected[0]?.prod))
           <div>        <Link to="/wishlist" className='d-flex align-items-center gap-10 text-white' ><img src="images/wishlist.svg" alt="wishlist" /><p className='mb-0'>Favourite  <br/> wishlist</p></Link></div>
           <div>         <Link to={authState?.user=== null || authState?.user=== undefined ? "/login" : "/my-profile" }className='d-flex align-items-center gap-10 text-white' >
             <img src="images/user.svg" alt="user" />
-            {authState.user === null  || authState?.user=== undefined  ?     <p className='mb-0'>Log in <br/> My Account</p> :     <p className='mb-0'>Welcome {authState.user.firstname} </p> }
+            {authState?.user === null  || authState?.user=== undefined  ?     <p className='mb-0'>Log in <br/> My Account</p> :     <p className='mb-0'>Welcome {authState?.user?.firstname} </p> }
             
         </Link></div>
           <div>         <Link to="/cart" className='d-flex align-items-center gap-10 text-white'><img src="images/cart.svg" alt="cart" />

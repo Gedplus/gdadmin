@@ -8,15 +8,15 @@ import { updateProfile } from '../features/user/userSlice';
 import {FiEdit} from "react-icons/fi"
 const profileSchema = yup.object().shape({
     firstname: yup
-    .string().required("First Name is Required"),
+    .string().required("Le prénom est requis"),
     lastname: yup
-    .string().required("Last Name is Required"),
+    .string().required("Le nom de famille est obligatoire"),
     email: yup
       .string()
-      .email("Email should be valid")
-      .required("Email is Required"),
+      .email("L'e-mail doit être valide")
+      .required("L'e-mail est requis"),
       mobile: yup
-      .string().required("Mobile is Required"),
+      .string().required("Le mobile est requis"),
 
   });
 const Profile = () =>{
@@ -45,12 +45,12 @@ setTimeout(()=>{
       });
 
 
-    return(<>   <BreadCrumb title="My Profile" />
+    return(<>   <BreadCrumb title="Mon profil" />
     <Container class1="cart-wrapper home-wrapper-2 py-5">
         <div className='row'>
         <div className='col-12'>
 <div className='d-flex justify-content-between align-items-center'>
-    <h3 className='my-3'>Update Profile</h3>
+    <h3 className='my-3'>Mettre à jour le profil</h3>
     <FiEdit className='fs-3' onClick={() => setEdit(false)} />
 </div>
 
@@ -59,7 +59,7 @@ setTimeout(()=>{
             <div className='col-12'>
             <form onSubmit={formik.handleSubmit}>
             <div className="mb-3">
-    <label htmlFor="example1"  className="form-label">First Name</label>
+    <label htmlFor="example1"  className="form-label">Prénopm</label>
     <input type="text"  name='firstname' className="form-control" disabled={edit} id="example1"  value={formik.values.firstname} onChange={formik.handleChange("firstname")}
                      onBlur={formik.handleBlur("firstname")}/>
                                   <div className="error">
@@ -68,7 +68,7 @@ setTimeout(()=>{
    
   </div>
   <div className="mb-3">
-    <label htmlFor="example2"  className="form-label">Last Name</label>
+    <label htmlFor="example2"  className="form-label">Nom</label>
     <input type="text" name='lastname' className="form-control" disabled={edit} id="example2" value={formik.values.lastname} onChange={formik.handleChange("lastname")}
                      onBlur={formik.handleBlur("lastname")} />
                                   <div className="error">
@@ -87,7 +87,7 @@ setTimeout(()=>{
 
   </div>
   <div className="mb-3">
-    <label htmlFor="example3"  className="form-label">Mobile No</label>
+    <label htmlFor="example3"  className="form-label">Téléphone</label>
     <input type="number" name='mobile' className="form-control"  disabled={edit} id="example3" value={formik.values.mobile} onChange={formik.handleChange("mobile")}
                      onBlur={formik.handleBlur("mobile")}/>
                                   <div className="error">
@@ -95,7 +95,7 @@ setTimeout(()=>{
           </div>
 
   </div>
-{edit === false &&   <button type="submit"  className="btn btn-primary">Save</button> }
+{edit === false &&   <button type="submit"  className="btn btn-primary">Modifier</button> }
 
 </form>
 

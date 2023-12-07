@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { BsLinkedin , BsGithub , BsYoutube , BsInstagram } from 'react-icons/bs'
+import newsletter from '../images/newsletter.png'
 const Footer = () => {
   return (
     <>
@@ -9,8 +10,8 @@ const Footer = () => {
           <div className='row align-items-center'>
             <div className='col-5'>
               <div className='footer-top-data  d-flex gap-30 align-items-center'>
-                <img src='images/newsletter.png' alt='newsletter' />
-                <h2 className='mb-0 text-white'>Sign Up for Newsletter</h2>
+                <img src={newsletter} alt='newsletter' />
+                <h2 className='mb-0 text-white'>S'inscrire aux Newsletters</h2>
               </div>
             </div>
             <div className='col-7'>     <div className='input-group '>
@@ -19,7 +20,7 @@ const Footer = () => {
           placeholder='Your Email Address'
           aria-label='Your Email Address'
           aria-describedby='basic-addon2' />
-          <span className='input-group-text p-2' id='basic-addon2'>Subscribe</span>
+          <span className='input-group-text p-2' id='basic-addon2'>S'abonner</span>
         </div></div>
           </div>
         </div>
@@ -27,7 +28,7 @@ const Footer = () => {
       <footer className='py-4'>
 <div className='container-xxl'>
   <div className='row'>
-    <div className='col-4'><h4 className='text-white mb-4'>Contact Us</h4>
+    <div className='col-4'><h4 className='text-white mb-4'>Contactez-nous</h4>
     <div >
       <address className='text-white fs-6'>Hno : 277 Near Vill chopal, <br/> Sonipat, Haryana <br/> PinCode: 131103</address>
       <a href='tel: +91 8264954234' className='mt-3 d-block mb-1 text-white'>+91 8264954234</a>
@@ -55,22 +56,22 @@ const Footer = () => {
       </div></div>
     <div className='col-3'><h4 className='text-white mb-4'>Information</h4>
     <div className='footer-links d-flex flex-column'>
-      <Link className="text-white py-2 mb-1" to="/privacy-policy">Privacy Policy</Link>
-      <Link className="text-white py-2 mb-1" to="/refund-policy">Refund Policy</Link>
-      <Link className="text-white py-2 mb-1" to="shipping-policy">Shipping Policy</Link>
+      <Link className="text-white py-2 mb-1" to="/privacy-policy">Politique de confidentialité</Link>
+      <Link className="text-white py-2 mb-1" to="/refund-policy">Politique de remboursement</Link>
+      <Link className="text-white py-2 mb-1" to="shipping-policy">Politique d'expédition</Link>
       <Link className="text-white py-2 mb-1" to="term-conditions">Terms & conditions </Link>
       <Link className="text-white py-2 mb-1" to="blogs">Blogs</Link></div>
     
     
     
     </div>
-    <div className='col-3'><h4 className='text-white mb-4'>Account</h4>
+    <div className='col-3'><h4 className='text-white mb-4'>Compte</h4>
     <div className='footer-links d-flex flex-column'>
-      <Link className="text-white py-2 mb-1">About Us</Link>
+      <Link className="text-white py-2 mb-1">À propos</Link>
       <Link className="text-white py-2 mb-1">Faq</Link>
       <Link className="text-white py-2 mb-1">Contact</Link>
 </div></div>
-    <div className='col-2'><h4 className='text-white mb-4'>Quick Links</h4>
+    <div className='col-2'><h4 className='text-white mb-4'>Liens rapides</h4>
     <div className='footer-links d-flex flex-column'>
       <Link className="text-white py-2 mb-1">Laptops</Link>
       <Link className="text-white py-2 mb-1">Headphones</Link>

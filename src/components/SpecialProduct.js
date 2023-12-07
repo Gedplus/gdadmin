@@ -1,5 +1,6 @@
 import React from "react"
 import ReactStars from "react-rating-stars-component";
+import watch from '../images/watch.jpg'
 import { Link } from "react-router-dom";
 const SpecialProduct = (props) =>{
     const {title , brand , totalrating , price , sold , quantity ,id  } = props
@@ -8,7 +9,7 @@ const SpecialProduct = (props) =>{
             <div className="special-product-card">
 <div className="d-flex justify-content-between">
     <div>
-        <img src="images/watch.jpg" className="img-fluid" alt="watch" />
+        <img src={watch} className="img-fluid" alt="watch" />
     </div>
     <div className="special-product-content" >
         <h5 className="brand">{brand}</h5>
@@ -36,7 +37,7 @@ edit={false}
 
     </div>*/ }
   <div className="prod-count my-3">
-<p>Products:{quantity}</p>
+<p>Produits:{quantity}</p>
 <div className="progress">
     <div className="progress-bar"
     role="progressbar"
@@ -46,7 +47,7 @@ aria-valuenow={quantity/ quantity + sold * 100}
     aria-valuemax={quantity+sold}></div>
 </div>
 </div>
-<Link className="button" to={`/product/${id}`}>View</Link>
+<Link className="button" to={`/product/${id}`}>Voir</Link>
     </div>
 </div>
 

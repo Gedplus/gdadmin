@@ -145,23 +145,23 @@ setTimeout(()=>{
                                 </li>
                                 &nbsp;/     &nbsp;
                                 <li className='breadcrumb-item  total-price active' aria-current="page">
-                                   Shipping
+                                Expédition
                                 </li>
                                 &nbsp;/     &nbsp;
                                 <li className='breadcrumb-item total-price active' aria-current="page">
-                                   Payement
+                                Paiement
                                 </li>
                             </ol>
 
                         </nav>
-                        <h4 className='title total'>Contact Information</h4>
-                        <p className='user-details total'>Navdeep Dahiya (cherifsahar97@gmail.com) </p>
-                        <h4 className='mb-3'>Shipping Address</h4>
+                        <h4 className='title total'>Coordonnées</h4>
+                        <p className='user-details total'>Cherif sahar (cherifsahar97@gmail.com) </p>
+                        <h4 className='mb-3'>Adresse de livraison</h4>
                         <form onSubmit={formik.handleSubmit} action='' className='d-flex flex-wrap gap-15 justify-content-between'>
 <div className='w-100'>
 <select name='country' className='form-control form-select' id="" value={formik.values.country}  onChange={formik.handleChange("country")}
                      onBlur={formik.handleBlur("country")}>
-<option value="" selected disabled>Select Country</option>
+<option value="" selected disabled>Choisissez le pays</option>
 <option value="Tunisie" >Tunisie</option>
 
 </select>
@@ -170,13 +170,13 @@ setTimeout(()=>{
           </div>
 
 </div>
-<div className='flex-grow-1'><input type='text' placeholder='First Name' className='form-control' name='firstName' value={formik.values.firstName}  onChange={formik.handleChange("firstName")}
+<div className='flex-grow-1'><input type='text' placeholder='Prénom' className='form-control' name='firstName' value={formik.values.firstName}  onChange={formik.handleChange("firstName")}
                      onBlur={formik.handleBlur("firstName")} />
                              <div className="error ms-2 my-1">
             {formik.touched.firstName && formik.errors.firstName}
           </div></div>
              
-<div className='flex-grow-1'><input type='text' placeholder='Last Name' className='form-control'  name='lastName' value={formik.values.lastName}  onChange={formik.handleChange("lastName")}
+<div className='flex-grow-1'><input type='text' placeholder='nom' className='form-control'  name='lastName' value={formik.values.lastName}  onChange={formik.handleChange("lastName")}
                      onBlur={formik.handleBlur("lastName")} />
                      <div className="error ms-2 my-1">
             {formik.touched.lastName && formik.errors.lastName}
@@ -188,7 +188,7 @@ setTimeout(()=>{
 <div className='w-100'><input type='text' placeholder='Apartement, Suite , etc' className='form-control'name='other' value={formik.values.other}  onChange={formik.handleChange("other")}
                      onBlur={formik.handleBlur("other")} />
                         </div>
-<div className='flex-grow-1'><input type='text' placeholder='City' className='form-control'name='city' value={formik.values.city}  onChange={formik.handleChange("city")}
+<div className='flex-grow-1'><input type='text' placeholder='Ville' className='form-control'name='city' value={formik.values.city}  onChange={formik.handleChange("city")}
                      onBlur={formik.handleBlur("city")} />          <div className="error ms-2 my-1">
                      {formik.touched.city && formik.errors.city}
                    </div></div>
@@ -211,9 +211,9 @@ setTimeout(()=>{
 
 <div className='w-100'>
     <div className='d-flex justify-content-between align-items-center'>
-<Link to='/cart' className='text-dark'> <BiArrowBack/> Return to Cart</Link>
-<Link to='/cart' className='button'>Continue to shipping</Link>
-<button className='button' type='submit'>Place Order</button>
+<Link to='/cart' className='text-dark'> <BiArrowBack/> Retour au panier</Link>
+<Link to='/cart' className='button'>Continuer mes achats</Link>
+<button className='button' type='submit'>Passer la commande</button>
     </div>
 </div>
 
@@ -254,7 +254,7 @@ setTimeout(()=>{
     <p className='total-price'>$ {total ? total : 0}</p>
 </div>
 <div className='d-flex justify-content-between align-items-center'>
-    <p className='mb-0 total'>Shipping</p>
+    <p className='mb-0 total'>Expédition</p>
     <p className='mb-0 total-price'>$ 5</p>
 </div>
 

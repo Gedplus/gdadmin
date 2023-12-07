@@ -19,13 +19,13 @@ useEffect(()=>{
     <div className='col-12'>
         <div className='row'>
             <div className='col-3'>
-                <h5>Order Id</h5>
+                <h5>Numéro de commande</h5>
             </div>
             <div className='col-3'>
-                <h5>Total Amount</h5>
+                <h5>Montant total</h5>
             </div>
             <div className='col-3'>
-                <h5>Total Amount After Discount</h5>
+                <h5>Montant total après remise</h5>
             </div>
             <div className='col-3'>
                 <h5>Status </h5>
@@ -50,16 +50,16 @@ useEffect(()=>{
     <div className='col-12'>
 <div className='row py-3' style={{backgroundColor:"#232f3e"}}>
     <div className='col-3'>
-        <h6 className='text-white'>Product Name</h6>
+        <h6 className='text-white'>Nom du produit</h6>
     </div>
     <div className='col-3'>
-        <h6 className='text-white'>Quantity</h6>
+        <h6 className='text-white'>Quantité</h6>
     </div>
     <div className='col-3'>
-        <h6 className='text-white'>Price</h6>
+        <h6 className='text-white'>Prix</h6>
     </div>
     <div className='col-3'>
-        <h6 className='text-white'>Color </h6>
+        <h6 className='text-white'>Couleur </h6>
     </div>
     </div>
     </div>

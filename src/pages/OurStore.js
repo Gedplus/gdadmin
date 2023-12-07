@@ -9,6 +9,10 @@ import Color from "../components/Color";
 import Container from "../components/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../features/products/productSlice";
+import gr2 from "../images/gr2.svg"
+import gr from "../images/gr.svg"
+import gr3 from "../images/gr3.svg"
+import gr4 from "../images/gr4.svg"
 const OurStore = () => {
     const[grid , setGrid] = useState(4);
 
@@ -19,7 +23,7 @@ const [categories, setCategorie] = useState([])
 
 const [category, setCategory] = useState(null)
 const [tags, setTags] = useState([])
-const [tag, setTag] = useState(null)
+const [tag, setTag] = useState(null) 
 const [minPrice, setMinPrice] = useState(null)
 const [maxPrice, setMaxPrice] = useState(null)
 const [sort , setSort] = useState(null)
@@ -47,7 +51,7 @@ useEffect(()=> {
 useEffect(() => {
     getProducts();
 },[sort , tag , brand , category , minPrice , maxPrice]);
-
+console.log(tag)
 const getProducts = () =>{
     dispatch(getAllProducts({sort , tag , brand , category , minPrice , maxPrice}));
 }
@@ -62,7 +66,7 @@ console.log(productState)
     <Container class1="store-wrapper home-wrapper-2 py-5" >       <div className="row">
                 <div className="col-3">
                     <div className="filter-card mb-3">
-                        <h3 className="filter-title">Shop By Categories</h3>
+                        <h3 className="filter-title">Acheter par catégories</h3>
                         <div >
                             <ul className="ps-0">
 {categories && [...new Set(categories)].map((item, index) =>{
@@ -74,7 +78,7 @@ console.log(productState)
                         </div>
                     </div>
                     <div className="filter-card mb-3">
-                    <h3 className="filter-title">Filter By</h3>
+                    <h3 className="filter-title">Filtrer par</h3>
                     <div>
 
 <h5 className="sub-title">Price</h5>
@@ -84,13 +88,13 @@ console.log(productState)
         style={{height:"35px"}}
         id="floatingInput"
         placeholder="From"  onChange={(e) => setMinPrice(e.target.value)}/>
-        <label htmlFor="floatingInput">Form</label>
+        <label htmlFor="floatingInput">De</label>
     </div>
     <div className="form-floating">
         <input type="number" className="form-control py-1"      style={{height:"35px"}}
         id="floatingInput" 
         placeholder="To" onChange={(e) => setMaxPrice(e.target.value)} />
-        <label htmlFor="floatingInput1">To</label>
+        <label htmlFor="floatingInput1">à</label>
     </div>
 </div>
 
@@ -99,7 +103,7 @@ console.log(productState)
 
                     </div>
                     <div className="mb-3 mt-4">
-                    <h3 className="sub-title">Product Tags</h3>
+                    <h3 className="sub-title">Mots clés du produit</h3>
                     <div>
 <div className="product-tags d-flex flex-wrap align-items-center gap-10" >
 {tags && [...new Set(tags)].map((item, index) =>{
@@ -168,27 +172,30 @@ edit={false}
                     <div className="filter-sort-grid mb-4">
                         <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center gap-10">
-                            <p className="mb-0 d-block" style={{width:"100px"}}>Sort By:</p>
+                            <p className="mb-0 d-block" style={{width:"100px"}}>Trier par:</p>
                             <select name="" className="form-control form-select" onChange={(e) =>setSort( e.target.value)} id="">
 
 
 <option value="title" >
-  Alphabetically, A-Z 
+Alphabétiquement, A-Z 
 </option>
 <option value="-title" >
-  Alphabetically, Z-A
+Alphabétiquement, Z-A
 </option>
 <option value="price" >
-  Price, low to high
+ 
+Prix ​​croissant
 </option>
 <option value="-price">
-  Price, high to low
+
+Prix dé​​croissant
 </option>
 <option value="createdAt" >
- Date, old to new
+Date, de l'ancien au nouveau
 </option>
 <option value="-createdAt" >
-Date, new to old
+
+Date, du nouveau à l'ancien
 </option>
 
 
@@ -199,10 +206,10 @@ Date, new to old
 <div className="d-flex align-items-center gap-10">
 <p className="totalproducts mb-0">21 Products</p>
  <div className="d-flex gap-10 align-items-center grid">
-    <img src="images/gr4.svg" className="d-block img-fluid" alt="grid" onClick={() =>{setGrid(3);}} />
-    <img src="images/gr3.svg" className="d-block img-fluid" alt="grid"  onClick={() =>{setGrid(4);}} />
-    <img src="images/gr2.svg" className="d-block img-fluid" alt="grid" onClick={() =>{setGrid(6);}}  />
-    <img src="images/gr.svg" className="d-block img-fluid" alt="grid" onClick={() =>{setGrid(12);}}  />
+    <img src={gr4} className="d-block img-fluid" alt="grid" onClick={() =>{setGrid(3);}} />
+    <img src={gr3}className="d-block img-fluid" alt="grid"  onClick={() =>{setGrid(4);}} />
+    <img src={gr2} className="d-block img-fluid" alt="grid" onClick={() =>{setGrid(6);}}  />
+    <img src={gr} className="d-block img-fluid" alt="grid" onClick={() =>{setGrid(12);}}  />
  </div>
 
 

@@ -39,10 +39,10 @@ dispatch(resetPassword({token:getToken , password:values.password}))
     <Container class1="login-wrapper py-5 home-wrapper-2">    <div className='row'>
             <div className='col-12'>
                 <div className='auth-card'>
-                    <h3 className='text-center mb-3'>Reset Password</h3>
+                    <h3 className='text-center mb-3'>Réinitialiser le mot de passe</h3>
                     <form   onSubmit={formik.handleSubmit} action="" className='d-flex flex-column gap-15'>
                     <CustomInput type='password' name='password'value={formik.values.password} onChange={formik.handleChange("password")}
-                      onBlur={formik.handleBlur("password")}     placeholder='Password'/>
+                      onBlur={formik.handleBlur("password")}     placeholder='Mot de passe'/>
                                                <div className="error ">
             {formik.touched.password && formik.errors.password}
           </div>

@@ -56,11 +56,11 @@ if (authState.user !== null && authState.isError === false){
             {formik.touched.email && formik.errors.email}
           </div>
           <CustomInput type='password' name='password'value={formik.values.password} onChange={formik.handleChange("password")}
-                      onBlur={formik.handleBlur("password")}     placeholder='Password'/>
+                      onBlur={formik.handleBlur("password")}     placeholder='Mot de passe'/>
                                                <div className="error ">
             {formik.touched.password && formik.errors.password}
           </div>
-                        <div> <Link to="/forgot-password">Forgot Password</Link>
+                        <div> <Link to="/forgot-password">Mot de passe oublié</Link>
                         <div className='mt-3 d-flex justify-content-center gap-15 align-items-center'>
                             <button className='button border-0' type='submit'>Login</button>
                             <Link className='button signup'to="/signup">SignUp</Link>

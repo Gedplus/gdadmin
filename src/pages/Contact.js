@@ -53,7 +53,7 @@ const Contact = () => {
 <div><h3 className="contact-title mb-4">Contact</h3>
 <form action="" onSubmit={formik.handleSubmit} className="d-flex flex-column gap-15">
   <div>
-    <input type="text" className="form-control" placeholder="Name"
+    <input type="text" className="form-control" placeholder="Nom"
     value={formik.values.name} onChange={formik.handleChange("name")}
     onBlur={formik.handleBlur("name")} name='name' />
                <div className="error">
@@ -69,7 +69,7 @@ const Contact = () => {
           </div>
   </div>
   <div>
-    <input type="tel" className="form-control" name='mobile'  placeholder="Mobile Number" 
+    <input type="tel" className="form-control" name='mobile'  placeholder="NUmero de téléphone" 
     value={formik.values.mobile} onChange={formik.handleChange("mobile")}
     onBlur={formik.handleBlur("mobile")} />
        <div className="error">
@@ -77,7 +77,7 @@ const Contact = () => {
           </div>
   </div>
   <div>
-    <textarea name="comment" id="" className="w-100 form-control"  cols="30" rows="4" placeholder="Comments" 
+    <textarea name="comment" id="" className="w-100 form-control"  cols="30" rows="4" placeholder="Message" 
     value={formik.values.comment} onChange={formik.handleChange("comment")}
                      onBlur={formik.handleBlur("comment")} ></textarea>
                          <div className="error">
@@ -88,7 +88,7 @@ const Contact = () => {
 </form>
 
 </div>
-<div><h3 className="contact-title mb-4">Get in touch with us</h3>
+<div><h3 className="contact-title mb-4">Prenez contact avec nous</h3>
 <div>
   <ul className="ps-0">
     <li className="mb-3 d-flex gap-15 align-items-center"><AiOutlineHome className="fs-5"/><address className="mb-0">33 New Montgomery St. Ste 750 San Francisco, CA, USA 94105</address></li>

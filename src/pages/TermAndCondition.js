@@ -4,8 +4,8 @@ import Meta from "../components/Meta"
 import Container from '../components/Container'
 const TermAndCondition = () => {
   return (
-<> <Meta title={"Term and Conditions"} />
-  <BreadCrumb title="Term and Conditions" />
+<> <Meta title={"Term et Conditions"} />
+  <BreadCrumb title="Term et Conditions" />
   <Container class1="policy-wrapper py-5 home-wrapper-2">    <div className='row'>
             <div className='col-12'>
                 <div className='policy'></div></div></div></Container>

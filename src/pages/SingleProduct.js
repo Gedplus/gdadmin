@@ -10,7 +10,12 @@ import {TbGitCompare} from "react-icons/tb"
 import {AiOutlineHeart} from 'react-icons/ai'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Container from '../components/Container';
+import wish from "../images/wish.svg"
 import { useDispatch, useSelector } from 'react-redux';
+import watch from '../images/watch.jpg'
+import view from '../images/view.svg'
+import addcart from '../images/add-cart.svg'
+import prodcompare from "../images/prodcompare.svg"
 import { addRating, addToWishlist, getAProduct, getAllProducts } from '../features/products/productSlice';
 import { addProdToCart, getUserCart } from '../features/user/userSlice';
 import { toast } from 'react-toastify';
@@ -129,18 +134,18 @@ edit={false}
     size={24}
     activeColor="#ffd700"
   />
-  <p className='mb-0 t-review'>( 2 Reviews )</p>
+  <p className='mb-0 t-review'>( 2 avis )</p>
 
     </div>
-    <a className="review-btn" href='#review'>Write a Review</a>
+    <a className="review-btn" href='#review'>Écrire un avi</a>
 </div>
 <div className='py-3'>
     <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Type :</h3><p className='product-data'>Watch</p></div>
     <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Brand :</h3><p className='product-data'>{productStates?.brand}</p></div>
     <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Category :</h3><p className='product-data'>{productStates?.category}</p></div>
     <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Tags :</h3><p className='product-data'>{productStates?.tags}</p></div>
-    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Availiblity :</h3><p className='product-data'>In stock</p></div>
-    <div className='d-flex gap-10 flex-column mt-2 mb-3'><h3 className='product-heading'>Size :</h3><div className='d-flex flex-wrap gap-15'>
+    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Disponibilité :</h3><p className='product-data'>In stock</p></div>
+    <div className='d-flex gap-10 flex-column mt-2 mb-3'><h3 className='product-heading'>Taille :</h3><div className='d-flex flex-wrap gap-15'>
         <span className='badge border border-1 bg-white text-dark border-secondary'>S</span>
         <span className='badge border border-1 bg-white text-dark border-secondary'>M</span>
         <span className='badge border border-1 bg-white text-dark border-secondary'>L</span>
@@ -148,13 +153,13 @@ edit={false}
         </div></div>
 {
     aleardyAdded == false && <>
-        <div className='d-flex gap-10 flex-column mt-2 mb-3'><h3 className='product-heading'>Color :</h3><Color setColor={setColor}
+        <div className='d-flex gap-10 flex-column mt-2 mb-3'><h3 className='product-heading'>Coleur :</h3><Color setColor={setColor}
     colorData={productStates?.color} /></div></>
 }
     <div className='d-flex gap-15 align-items-center flex-row mt-2 mb-3'>
 {
     aleardyAdded === false && <>
-            <h3 className='product-heading'>Quantity :</h3>
+            <h3 className='product-heading'>Quantité :</h3>
     <div className=''>
         <input type='number' style={{width: "70px"}} min={1} max={10} className='form-control' name='' id='' value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
     </div></>
@@ -168,23 +173,25 @@ edit={false}
    
    <div className='d-flex align-items-center gap-15'>
 <div>
-    <a href=''><TbGitCompare className='fs-5 me-2' />Add to Compare</a>
+    <a href=''><TbGitCompare className='fs-5 me-2' />
+Ajouter pour comparer</a>
 </div>
 <div>
-    <a href=''><AiOutlineHeart className='fs-5 me-2' />Add to Wishlist</a>
+    <a href=''><AiOutlineHeart className='fs-5 me-2' />Ajouter à Wishlist</a>
 </div>
 
    </div>
    <div className='d-flex gap-10 flex-column my-3'>
-    <h3 className='product-heading'>Shipping & Returns</h3>
-    <p className='product-data'>Free shipping and returns available on all orders! <br/>
+    <h3 className='product-heading'>Expédition & retours</h3>
+    <p className='product-data'>Livraison et retours gratuits disponibles sur toutes les commandes ! <br/>
 We ship all US domestic orders within <b>5-10 business days!</b> </p>
    </div>
 
    <div className='d-flex gap-10 align-items-center my-3'>
-    <h3 className='product-heading'>Product Link</h3>
+    <h3 className='product-heading'>Lien produit</h3>
  <a href='javascript:void(0);' onClick={() => {copyToClipboard(window.location.href)}} >
-   Copy Product Link
+
+ Copier le lien du produit
   
   </a>
    </div>
@@ -209,7 +216,7 @@ We ship all US domestic orders within <b>5-10 business days!</b> </p>
                     <h3>Review</h3>
                  <div  className='review-inner-wrapper'>
                  <div className='review-head d-flex justify-content-between align-items-end'>
-                        <div><h4 className='mb-2'>Customer Reviews</h4>
+                        <div><h4 className='mb-2'>Avis des clients</h4>
                     <div className='d-flex align-items-center gap-10'>
                         <ReactStars
     count={5}
@@ -218,15 +225,16 @@ edit={false}
     size={24}
     activeColor="#ffd700"
   />
-  <p className='mb-0'>Based on 2 Reviews</p>
+  <p className='mb-0'>
+Basé sur 2 avis</p>
   </div>    
                         </div>
 {orderedProduct && (<div>
-    <a  className='text-dark text-decoration-underline' href=''>Write a Review</a>
+    <a  className='text-dark text-decoration-underline' href=''>Écrire un avi</a>
 </div>)}
                     </div>
                     <div  className='review-form py-4'>
-                        <h4>Write a Review</h4>
+                        <h4>Écrire un avi</h4>
          
 <div>
 <ReactStars
@@ -241,7 +249,7 @@ edit={true}
   <div>
     <textarea name="comments" id=""     onChange={(e)=>{setComments(e.target.value)}} className="w-100 form-control" cols="30" rows="4" placeholder="Comments" ></textarea>
   </div>
-  <div className='d-flex justify-content-end mt-3'><button className="button border-0 " type='button' onClick={addRatingToProduct}>Submit Review</button></div>
+  <div className='d-flex justify-content-end mt-3'><button className="button border-0 " type='button' onClick={addRatingToProduct}>Submit avis</button></div>
 
                     </div>
                     <div className='reviews mt-4'>
@@ -270,7 +278,8 @@ edit={true}
             </div></Container>
  <Container class1="popular-wrapper home-wrapper-2 py-5"> <div className='row'>
  <div className="col-12">
-   <h3 className="section-heading">Our Popular Products</h3>
+   <h3 className="section-heading">
+Nos produits populaires</h3>
  </div>
 
 
@@ -284,7 +293,7 @@ if(item?.tags === "popular"){
     <div /* to={`${location.pathname == "/" ? "/product/:id" : location.pathname =="/product/:id" ? "/product/:id" : ":id"}`} */ className="product-card position-relative">
 <div className="wishlist-icon position-absolute">
 <button className="border-0 bg-transparent" onClick={(e) => {addToWishList(item?._id)}}>
-<img src="images/wish.svg" alt="wishlist" />
+<img src={wish} alt="wishlist" />
 
 </button></div> 
 
@@ -292,7 +301,7 @@ if(item?.tags === "popular"){
 
 <div className="product-image">
 <img src={item?.images[0].url} className="img-fluid  mx-auto" width={200} alt="product image" />
-<img src="images/watch.jpg" className="img-fluid mx-auto" width={200}   alt="product image" />
+<img src={watch} className="img-fluid mx-auto" width={200}   alt="product image" />
 
 </div>
 <div className="product-details">
@@ -311,9 +320,9 @@ activeColor="#ffd700"
 
 <div className="action-bar position-absolute">
 <div className="d-flex flex-column gap-15">
-<button className="border-0 bg-transparent"><img src="images/prodcompare.svg" alt="compare"/></button>
-<button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)} src="images/view.svg" alt="view"/></button>
-<button className="border-0 bg-transparent"><img src="images/add-cart.svg" alt="addcart"/></button>
+<button className="border-0 bg-transparent"><img src={prodcompare} alt="compare"/></button>
+<button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)} src={view} alt="view"/></button>
+<button className="border-0 bg-transparent"><img src={addcart} alt="addcart"/></button>
 </div>
 </div>
 

@@ -12,7 +12,28 @@ import  moment from "moment";
 import { getAllBlogs } from '../features/blogs/blogSlice'
 import { getAllProducts } from '../features/products/productSlice'
 import ReactStars from "react-rating-stars-component";
-
+import banner1 from "../images/main-banner-1.jpg"
+import catbanner01 from "../images/catbanner-01.jpg"
+import catbanner02 from "../images/catbanner-02.jpg"
+import catbanner03 from "../images/catbanner-03.jpg"
+import catbanner04 from "../images/catbanner-04.jpg"
+import prodcompare from "../images/prodcompare.svg"
+import famous1 from "../images/famous-1.webp"
+import famous2 from "../images/famous-2.webp"
+import famous3 from "../images/famous-3.webp"
+import famous4 from "../images/famous-4.webp"
+import wish from "../images/wish.svg"
+import watch from '../images/watch.jpg'
+import view from '../images/view.svg'
+import addcart from '../images/add-cart.svg'
+import brand01 from '../images/brand-01.png'
+import brand02 from '../images/brand-02.png'
+import brand03 from '../images/brand-03.png'
+import brand04 from '../images/brand-04.png'
+import brand05 from '../images/brand-05.png'
+import brand06 from '../images/brand-06.png'
+import brand07 from '../images/brand-07.png'
+import brand08 from '../images/brand-08.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { addToWishlist } from "../features/products/productSlice";
 const Home = () => {
@@ -42,7 +63,7 @@ console.log(productState,"prod")
  <Container class1='home-wrapper-1 py-5'>    <div className='row'>
       <div className='col-6'>
         <div className='main-banner position-relative '>
-          <img src='images/main-banner-1.jpg' className="img-fluid rounded-3" alt='mein banner' />
+          <img src={banner1} className="img-fluid rounded-3" alt='mein banner' />
           <div className='main-banner-content position-absolute'>
 <h4>SUPERCHARGED FOR PROS.</h4>
 <h5>iPad S13+ Pro</h5>
@@ -56,7 +77,7 @@ console.log(productState,"prod")
       <div className='col-6'>
 <div className='d-flex flex-wrap gap-10 justify-content-between align-items-center'>
 <div className='small-banner position-relative '>
-          <img src='images/catbanner-01.jpg' className="img-fluid rounded-3" alt='mein banner' />
+          <img src={catbanner01} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
 <h4>Best Sake</h4>
 <h5>iPad S13+ Pro.</h5>
@@ -67,7 +88,7 @@ console.log(productState,"prod")
           </div>
         </div>
         <div className='small-banner position-relative '>
-          <img src='images/catbanner-02.jpg' className="img-fluid rounded-3" alt='mein banner' />
+          <img src={catbanner02} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
 <h4>NEW ARRIVAL</h4>
 <h5>But IPad Alr</h5>
@@ -78,7 +99,7 @@ console.log(productState,"prod")
           </div>
         </div>
         <div className='small-banner position-relative '>
-          <img src='images/catbanner-03.jpg' className="img-fluid rounded-3" alt='mein banner' />
+          <img src={catbanner03} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
 <h4>NEW ARRIVAL</h4>
 <h5>But IPad Alr</h5>
@@ -89,7 +110,7 @@ console.log(productState,"prod")
           </div>
         </div>
         <div className='small-banner position-relative '>
-          <img src='images/catbanner-04.jpg' className="img-fluid rounded-3" alt='mein banner' />
+          <img src={catbanner04} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
 <h4>NEW ARRIVAL</h4>
 <h5>But IPad Alr</h5>
@@ -193,7 +214,7 @@ console.log(productState,"prod")
 </div></Container>*/}
  <Container class1="featured-wrapper home-wrapper-2 py-5"><div className='row'>
       <div className="col-12">
-        <h3 className="section-heading">Featured Collection</h3>
+        <h3 className="section-heading">Collection en vedette</h3>
       </div>
       {productState?.map((item, index) => {
 if(item?.tags === "featured"){
@@ -202,7 +223,7 @@ if(item?.tags === "featured"){
     <div /* to={`${location.pathname == "/" ? "/product/:id" : location.pathname =="/product/:id" ? "/product/:id" : ":id"}`} */ className="product-card position-relative">
 <div className="wishlist-icon position-absolute">
 <button className="border-0 bg-transparent" onClick={(e) => {addToWishList(item?._id)}}>
-<img src="images/wish.svg" alt="wishlist" />
+<img src={wish} alt="wishlist" />
 
 </button></div> 
 
@@ -210,7 +231,7 @@ if(item?.tags === "featured"){
 
 <div className="product-image">
 <img src={item?.images[0].url} className="img-fluid  mx-auto" width={200} alt="product image" />
-<img src="images/watch.jpg" className="img-fluid mx-auto" width={200}   alt="product image" />
+<img src={watch} className="img-fluid mx-auto" width={200}   alt="product image" />
 
 </div>
 <div className="product-details">
@@ -229,9 +250,9 @@ activeColor="#ffd700"
 
 <div className="action-bar position-absolute">
 <div className="d-flex flex-column gap-15">
-<button className="border-0 bg-transparent"><img src="images/prodcompare.svg" alt="compare"/></button>
+<button className="border-0 bg-transparent"><img src={prodcompare} alt="compare"/></button>
 <button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)} src="images/view.svg" alt="view"/></button>
-<button className="border-0 bg-transparent"><img src="images/add-cart.svg" alt="addcart"/></button>
+<button className="border-0 bg-transparent"><img src={addcart} alt="addcart"/></button>
 </div>
 </div>
 
@@ -244,7 +265,7 @@ activeColor="#ffd700"
 <Container class1="famous-wrapper py-5 home-wrapper-2"><div className='row'>
     <div className='col-3'>
       <div className='famous-card position-relative'>
-        <img src='images/famous-1.webp' className="img-fluid" alt='famous' />
+        <img src={famous1} className="img-fluid" alt='famous' />
         <div className='famous-content position-absolute'> 
         <h5>Big Screen</h5>
 <h6>Smart Watch Series 7</h6>
@@ -255,7 +276,7 @@ activeColor="#ffd700"
     </div>
     <div className='col-3'>
       <div className='famous-card position-relative'>
-        <img src='images/famous-2.webp' className="img-fluid" alt='famous' />
+        <img src={famous2} className="img-fluid" alt='famous' />
         <div className='famous-content position-absolute'> 
         <h5 className='text-dark'>Studio Display</h5>
 <h6 className='text-dark' >600 nits of brightness.</h6>
@@ -266,7 +287,7 @@ activeColor="#ffd700"
     </div>
     <div className='col-3'>
       <div className='famous-card position-relative'>
-        <img src='images/famous-3.webp' className="img-fluid" alt='famous' />
+        <img src={famous3} className="img-fluid" alt='famous' />
         <div className='famous-content position-absolute'> 
         <h5 className='text-dark'>smartphones</h5>
 <h6 className='text-dark' >Smartphone 13 Pro.</h6>
@@ -278,7 +299,7 @@ activeColor="#ffd700"
     </div>
     <div className='col-3'>
       <div className='famous-card position-relative'>
-        <img src='images/famous-4.webp' className="img-fluid" alt='famous' />
+        <img src={famous4} className="img-fluid" alt='famous' />
         <div className='famous-content position-absolute'> 
         <h5 className='text-dark'>home speakers</h5>
 <h6 className='text-dark' >Room-filling sound.</h6>
@@ -291,7 +312,7 @@ activeColor="#ffd700"
 
 <Container class1="special-wrapper py-5 home-wrapper-2"><div className='row'>
     <div className="col-12">
-        <h3 className="section-heading">Special Products</h3>
+        <h3 className="section-heading">Produits speciaux</h3>
       </div>
     </div>
     <div className='row '>
@@ -309,7 +330,7 @@ if(item?.tags === "special"){
     </div></Container>
 <Container class1="popular-wrapper home-wrapper-2 py-5"> <div className='row'>
       <div className="col-12">
-        <h3 className="section-heading">Our Popular Products</h3>
+        <h3 className="section-heading">Nos produits populaires</h3>
       </div>
 
 
@@ -322,7 +343,7 @@ if(item?.tags === "popular"){
     <div /* to={`${location.pathname == "/" ? "/product/:id" : location.pathname =="/product/:id" ? "/product/:id" : ":id"}`} */ className="product-card position-relative">
 <div className="wishlist-icon position-absolute">
 <button className="border-0 bg-transparent" onClick={(e) => {addToWishList(item?._id)}}>
-<img src="images/wish.svg" alt="wishlist" />
+<img src={wish} alt="wishlist" />
 
 </button></div> 
 
@@ -330,7 +351,7 @@ if(item?.tags === "popular"){
 
 <div className="product-image">
 <img src={item?.images[0].url} className="img-fluid  mx-auto" width={200} alt="product image" />
-<img src="images/watch.jpg" className="img-fluid mx-auto" width={200}   alt="product image" />
+<img src={watch} className="img-fluid mx-auto" width={200}   alt="product image" />
 
 </div>
 <div className="product-details">
@@ -349,9 +370,9 @@ activeColor="#ffd700"
 
 <div className="action-bar position-absolute">
 <div className="d-flex flex-column gap-15">
-<button className="border-0 bg-transparent"><img src="images/prodcompare.svg" alt="compare"/></button>
-<button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)} src="images/view.svg" alt="view"/></button>
-<button className="border-0 bg-transparent"><img src="images/add-cart.svg" alt="addcart"/></button>
+<button className="border-0 bg-transparent"><img src={prodcompare} alt="compare"/></button>
+<button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)} src={view} alt="view"/></button>
+<button className="border-0 bg-transparent"><img src={addcart} alt="addcart"/></button>
 </div>
 </div>
 
@@ -370,28 +391,28 @@ activeColor="#ffd700"
         <div className='marquee-inner-wrapper card-wrapper'>
           <Marquee className='d-flex'>
             <div className='mx-4 w-25'>
-              <img src='images/brand-01.png' alt='brand' />
+              <img src={brand01} alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-02.png' alt='brand' />
+              <img src={brand02}  alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-03.png' alt='brand' />
+              <img src={brand03}  alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-04.png' alt='brand' />
+              <img src={brand04}  alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-05.png' alt='brand' />
+              <img src={brand05}  alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-06.png' alt='brand' />
+              <img src={brand06}  alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-07.png' alt='brand' />
+              <img src={brand07}  alt='brand' />
             </div>
             <div className='mx-4 w-25'>
-              <img src='images/brand-08.png' alt='brand' />
+              <img src={brand08}  alt='brand' />
             </div>
 
           </Marquee>
@@ -403,7 +424,7 @@ activeColor="#ffd700"
 <Container class1="blog-wrapper home-wrapper-2 py-5">
 <div className='row'>
       <div className="col-12">
-        <h3 className="section-heading">Our Latest Blogs</h3>
+        <h3 className="section-heading">Nos derniers blogs</h3>
       </div>
 
     </div>

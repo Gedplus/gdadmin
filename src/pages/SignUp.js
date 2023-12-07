@@ -12,16 +12,16 @@ import { registerUser } from '../features/user/userSlice';
 
 const signUpSchema = yup.object().shape({
     firstname: yup
-    .string().required("First Name is Required"),
+    .string().required("Le prénom est requis"),
     lastname: yup
-    .string().required("Last Name is Required"),
+    .string().required("Le nom de famille est obligatoire"),
     email: yup
       .string()
-      .email("Email should be valid")
-      .required("Email is Required"),
+      .email("L'e-mail doit être valide")
+      .required("L'e-mail est requis"),
       mobile: yup
-      .string().required("Mobile is Required"),
-    password: yup.string().required("Password is Required"),
+      .string().required("Le mobile est requis"),
+    password: yup.string().required("Mot de passe requis"),
   });
 const SignUp = () =>{
 const dispatch = useDispatch();
@@ -55,12 +55,12 @@ const navigate  = useNavigate()
                     <h3 className='text-center mb-3'>Sign Up</h3>
                     <form action="" onSubmit={formik.handleSubmit} className='d-flex flex-column gap-15'>
                     <CustomInput  type='text' name='firstname' value={formik.values.firstname} onChange={formik.handleChange("firstname")}
-                     onBlur={formik.handleBlur("firstname")} placeholder='First Name' />
+                     onBlur={formik.handleBlur("firstname")} placeholder='Prénom' />
                        <div className="error">
             {formik.touched.firstname && formik.errors.firstname}
           </div>
                     <CustomInput  type='text' name='lastname' value={formik.values.lastname} onChange={formik.handleChange("lastname")} 
-                    onBlur={formik.handleBlur("lastname")} placeholder='Last Name' />
+                    onBlur={formik.handleBlur("lastname")} placeholder='Nom' />
                            <div className="error ">
             {formik.touched.lastname && formik.errors.lastname}
           </div>
@@ -70,12 +70,12 @@ const navigate  = useNavigate()
             {formik.touched.email && formik.errors.email}
           </div>
                         <CustomInput type='tel' name='mobile'value={formik.values.mobile} onChange={formik.handleChange("mobile")}  
-                    onBlur={formik.handleBlur("mobile")}      placeholder='Mobile Number'/>
+                    onBlur={formik.handleBlur("mobile")}      placeholder='Mobile'/>
                                      <div className="error ">
             {formik.touched.mobile && formik.errors.mobile}
           </div>
                         <CustomInput type='password' name='password'value={formik.values.password} onChange={formik.handleChange("password")}
-                      onBlur={formik.handleBlur("password")}     placeholder='Password'/>
+                      onBlur={formik.handleBlur("password")}     placeholder='Mot de passe'/>
                                                <div className="error ">
             {formik.touched.password && formik.errors.password}
           </div>

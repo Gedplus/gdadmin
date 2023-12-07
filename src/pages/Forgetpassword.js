@@ -12,8 +12,8 @@ const forgetSchema = yup.object().shape({
 
     email: yup
       .string()
-      .email("Email should be valid")
-      .required("Email is Required"),
+      .email("L'e-mail doit être valide")
+      .required("L'e-mail est requis"),
 
 
   });
@@ -39,8 +39,8 @@ dispatch(forgetpasswordToken(values))
     <Container class1="login-wrapper py-5 home-wrapper-2"> <div className='row'>
             <div className='col-12'>
                 <div className='auth-card'>
-                    <h3 className='text-center mb-3'>Reset Your Password</h3>
-                    <p className='text-center mt-2 mb-3'>We will you an email to reset password</p>
+                    <h3 className='text-center mb-3'>Réinitialisez votre mot de passe</h3>
+                    <p className='text-center mt-2 mb-3'>Nous vous enverrons un e-mail pour réinitialiser le mot de passe</p>
                     <form action="" className='d-flex flex-column gap-15' onSubmit={formik.handleSubmit}>
                     <CustomInput type='email' name='email'value={formik.values.email}  onChange={formik.handleChange("email")} 
                        onBlur={formik.handleBlur("email")}    placeholder='Email' />
@@ -51,7 +51,7 @@ dispatch(forgetpasswordToken(values))
                         <div>
                         <div className='mt-3 d-flex justify-content-center flex-column gap-15 align-items-center'>
                             <button className='button border-0' type="submit">Submit</button>
-                            <Link to="/login">Cancel</Link>
+                            <Link to="/login">Annuler</Link>
                         </div>
                         
                         </div>

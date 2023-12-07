@@ -3,6 +3,11 @@ import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { addToWishlist } from "../features/products/productSlice";
+import prodcompare from "../images/prodcompare.svg"
+import wish from "../images/wish.svg"
+import watch from '../images/watch.jpg'
+import view from '../images/view.svg'
+import addcart from '../images/add-cart.svg'
 const ProductCard =(props)=> {
     const {grid, data} = props
     const dispatch = useDispatch();
@@ -22,7 +27,7 @@ console.log({prodId})
                 <div /* to={`${location.pathname == "/" ? "/product/:id" : location.pathname =="/product/:id" ? "/product/:id" : ":id"}`} */ className="product-card position-relative">
     <div className="wishlist-icon position-absolute">
         <button className="border-0 bg-transparent" onClick={(e) => {addToWishList(item?._id)}}>
-        <img src="images/wish.svg" alt="wishlist" />
+        <img src={wish} alt="wishlist" />
         
         </button></div> 
     
@@ -30,7 +35,7 @@ console.log({prodId})
     
     <div className="product-image">
         <img src={item?.images[0].url} className="img-fluid  mx-auto" width={200} alt="product image" />
-        <img src="images/watch.jpg" className="img-fluid mx-auto" width={200}   alt="product image" />
+        <img src={watch} className="img-fluid mx-auto" width={200}   alt="product image" />
     
     </div>
     <div className="product-details">
@@ -49,9 +54,9 @@ console.log({prodId})
     
     <div className="action-bar position-absolute">
         <div className="d-flex flex-column gap-15">
-            <button className="border-0 bg-transparent"><img src="images/prodcompare.svg" alt="compare"/></button>
-            <button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)}  src="images/view.svg" alt="view"/></button>
-            <button className="border-0 bg-transparent"><img src="images/add-cart.svg" alt="addcart"/></button>
+            <button className="border-0 bg-transparent"><img src={prodcompare} alt="compare"/></button>
+            <button className="border-0 bg-transparent"><img onClick={()=>navigate("/product/"+item?._id)}  src={view} alt="view"/></button>
+            <button className="border-0 bg-transparent"><img src={addcart} alt="addcart"/></button>
         </div>
     </div>
     

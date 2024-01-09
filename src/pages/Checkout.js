@@ -68,15 +68,15 @@ useEffect(() => {
 
 )
 useEffect(() => {
-    setNum(Number(authState1?.numfac?.[0]?.valeur) + 1)
-},[]
+    setNum(authState1?.numfac?.[0]?.valeur)
+},[authState1]
 
 )
 console.log("numFac",num)
 
 console.log( new Date().toLocaleString(), "date")
 
-
+console.log(cartProductState,'cartProductState')
 
 const formik = useFormik({
     initialValues: {
@@ -98,12 +98,12 @@ setShippingInfo(values)
 
 setTimeout(()=>{
    
-    AddBonCommandeEntéte ( {codcli:authState?.user?._id, raisoc:`${values?.firstName}" "${ values?.lastName}` , datfac: new Date().toLocaleString()})
+    AddBonCommandeEntéte ( {codcli:"001", raisoc:`${values?.firstName}` , datfac: new Date().toLocaleString()})
 },300)
 
 setTimeout(()=>{
     for(let index=0 ; index< userCartState?.length; index++){ 
-        AddBonCommande ({numfac:num.toString(),numlig:index ,codeArt:userCartState[index]?.productId?.codeArt , quantity:userCartState[index].quantity ,desart:userCartState[index]?.productId?.title,datfac:new Date().toLocaleString() ,priuni:userCartState[index]?.productId?.price })
+        AddBonCommande ({numfac:num,numlig:index ,codeArt:userCartState[index]?.productId?.codeArt , quantity:userCartState[index].quantity ,desart:userCartState[index]?.productId?.title,datfac:new Date().toLocaleString() ,priuni:userCartState[index]?.productId?.price })
     }
    
 },300)

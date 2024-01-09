@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProfile } from '../features/user/userSlice';
 import {FiEdit} from "react-icons/fi"
+
 const profileSchema = yup.object().shape({
     firstname: yup
     .string().required("Le prénom est requis"),

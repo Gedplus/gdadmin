@@ -33,6 +33,7 @@ function App() {
    <Routes>
     <Route path='/' element={<Layout/>}>
     <Route index element={ <Home/>} />
+    <Route path='signup' element={<SignUp/> } />
     <Route path='about' element={ <About/>} />
     <Route path='contact' element={ <Contact/>} />
     <Route path='store' element={ <OurStore/>} />
@@ -46,7 +47,6 @@ function App() {
     <Route path='my-profile' element={ <PrivateRoutes> <Profile/></PrivateRoutes> } />
     <Route path='login' element={ <OpenRoutes><Login/></OpenRoutes>} />
     <Route path='forgot-password' element={ <Forgetpassword/>} />
-    <Route path='signup' element={<OpenRoutes> <SignUp/> </OpenRoutes>} />
     <Route path='reset-password/:token' element={ <Resetpassword/>} />
     <Route path='privacy-policy' element={ <PrivatePolicy/>} />
     <Route path='refund-policy' element={ <RefundPolicy/>} />

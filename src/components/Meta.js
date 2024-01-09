@@ -4,7 +4,7 @@ const Meta =(props) =>{
     return(
         <Helmet>
         <meta charSet="utf-8" />
-        <title>Our Store</title>
+        <title>Notre magasin</title>
         
     </Helmet>
     )

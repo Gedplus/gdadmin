@@ -55,6 +55,7 @@ console.log(aleardyAdded)
     const [color ,setColor] = useState(null)
     console.log(color)
     const [quantity, setQuantity] = useState(1)
+    
     const UploadCart = () =>{
         if(color === null) {
             toast.error("Please Choose Color")

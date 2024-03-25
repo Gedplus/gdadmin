@@ -8,8 +8,8 @@ import { useFormik } from 'formik';
 import { useEffect } from 'react';
 import * as yup from "yup"
 import { createAnOrder, emptyCartu, numfac } from '../features/user/userSlice';
-import { AddBonCommande, AddBonCommandeEntéte, Switch,  getNumFacture } from '../util/api';
-
+import { AddBonCommande, AddBonCommandeEntéte, PrixTotal, Switch,  getNumFacture } from '../util/api';
+import dateFormat, { masks } from "dateformat";
 const shippingSchema = yup.object().shape({
     firstName: yup
     .string().required("First Name is Required"),
@@ -73,11 +73,9 @@ useEffect(() => {
 
 )
 console.log("numFac",num)
+const now = new Date();
 
-console.log( new Date().toLocaleString(), "date")
-
-console.log(cartProductState,'cartProductState')
-
+console.log(dateFormat(now, "isoDateTime").slice(0,10))
 const formik = useFormik({
     initialValues: {
         firstName:"",
@@ -98,15 +96,36 @@ setShippingInfo(values)
 
 setTimeout(()=>{
    
-    AddBonCommandeEntéte ( {codcli:"001", raisoc:`${values?.firstName}` , datfac: new Date().toLocaleString()})
+    AddBonCommandeEntéte ( {codcli:"001", raisoc:`${values?.firstName}` , datfac: dateFormat(now, "isoDateTime").slice(0,10)})
 },300)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 setTimeout(()=>{
     for(let index=0 ; index< userCartState?.length; index++){ 
-        AddBonCommande ({numfac:num,numlig:index ,codeArt:userCartState[index]?.productId?.codeArt , quantity:userCartState[index].quantity ,desart:userCartState[index]?.productId?.title,datfac:new Date().toLocaleString() ,priuni:userCartState[index]?.productId?.price })
+        AddBonCommande ({numfac:num,numlig:index ,codeArt:userCartState[index]?.productId?.codeArt , quantity:userCartState[index].quantity ,desart:userCartState[index]?.productId?.title,datfac:dateFormat(now, "isoDateTime").slice(0,10) ,priuni:userCartState[index]?.productId?.price })
     }
    
 },300)
+
+
+
+
+setTimeout(()=>{
+   
+    PrixTotal ( {numfac:num})
+},500)
 setTimeout(()=>{
   
     dispatch(emptyCartu())

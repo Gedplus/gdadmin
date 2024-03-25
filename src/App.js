@@ -27,7 +27,7 @@ import Orders from './pages/orders';
 import Profile from './pages/Profile';
 import StoreCategory from './pages/ShopCategory';
 
-function App() {
+function App() { 
   return (
    <><BrowserRouter>
    <Routes>

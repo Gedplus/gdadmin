@@ -8,6 +8,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.1",
     "axios": "^1.6.1",
+    "date-fns": "^3.6.0",
+    "dateformat": "^5.0.3",
     "formik": "^2.4.5",
     "moment": "^2.29.4",
     "react": "^18.2.0",

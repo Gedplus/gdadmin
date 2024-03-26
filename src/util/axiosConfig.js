@@ -1,4 +1,4 @@
-export const base_url ="https://api.my-home-plus.com/"
+export const base_url ="https://api.my-home-plus.com/api/"
 const getTokenFromLocalStorage = localStorage.getItem("customer")
   ? JSON.parse(localStorage.getItem("customer"))
   : null;

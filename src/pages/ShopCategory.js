@@ -19,8 +19,7 @@ const StoreCategory = () => {
     const location = useLocation();
     const getCategory = location.pathname.split("/")[2];
     const productState = useSelector((state) => state.product.product);
-const [brands , setBrands] = useState([])
-const [brand , setBrand] = useState(null)
+
 const [categories, setCategorie] = useState([])
 
 const [category, setCategory] = useState(null)
@@ -35,32 +34,32 @@ useEffect(()=>{
 },[getCategory])
 console.log(getCategory)
 useEffect(()=> {
-    let newBrands = [];
+ 
     let newcategory= [];
     let newtages =[];
 
     for(let index = 0 ; index <productState.length ; index++){
         const element= productState[index];
-        newBrands.push( element.brand)
+      
         newcategory.push(element.category)
         newtages.push(element.tags)
     
     }
-    setBrands(newBrands)
+   
     setCategorie(newcategory)
     setTags(newtages)
 
 },[productState])
- console.log([...new Set(brands)] , [...new Set(categories)] , [...new Set(tags)])
+ console.log( [...new Set(categories)] , [...new Set(tags)])
 
     const dispatch = useDispatch();
    
 useEffect(() => {
     getProducts();
-},[sort , tag , brand , category , minPrice , maxPrice ]);
+},[sort , tag , category , minPrice , maxPrice ]);
 
 const getProducts = () =>{
-    dispatch(getAllProducts({sort , tag , brand , category , minPrice , maxPrice}));
+    dispatch(getAllProducts({sort , tag , category , minPrice , maxPrice}));
 }
 
 console.log(productState)
@@ -121,16 +120,7 @@ console.log(productState)
         
                             </div></div></div>
                             <div className=" mb-3  mt-4">
-                            <h3 className="sub-title">Product Brands</h3>
-                            <div>
-        <div className="product-tags d-flex flex-wrap align-items-center gap-10" >
-        {brands && [...new Set(brands)].map((item, index) =>{
-            return    <span className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3" key={index} onClick={() => setBrand(item)}>{item}</span>
-        })}
-        
-        
-        
-                            </div></div></div>
+             </div>
                             </div>
                          
                           { /*  <div className="filter-card mb-3 ">

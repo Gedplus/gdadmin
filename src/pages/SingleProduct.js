@@ -5,7 +5,7 @@ import ReactStars from "react-rating-stars-component";
 import ProductCard from '../components/ProductCard'
 import { useState } from 'react';
 import ReactImageZoom from 'react-image-zoom';
-import Color from '../components/Color';
+
 import {TbGitCompare} from "react-icons/tb"
 import {AiOutlineHeart} from 'react-icons/ai'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -52,19 +52,14 @@ const addToWishList = (prodId) =>{
             dispatch(addToWishlist(prodId))
         }
 console.log(aleardyAdded)
-    const [color ,setColor] = useState(null)
-    console.log(color)
+
     const [quantity, setQuantity] = useState(1)
     
     const UploadCart = () =>{
-        if(color === null) {
-            toast.error("Please Choose Color")
-            return false
-        }
-        else {
-            dispatch(addProdToCart({productId: productStates?._id , quantity , color , price: productStates?.price}))
-            navigate('/cart')
-        }
+
+            dispatch(addProdToCart({productId: productStates?._id , quantity , price: productStates?.price}))
+            
+            window.location.href=`/cart`
 
     }
     const props = {width: 400, height: 600, zoomWidth: 600,
@@ -94,6 +89,7 @@ console.log(aleardyAdded)
             dispatch(addRating({star: star , comment :comments , prodId:getProductId}))
             setTimeout(()=>{
                 dispatch(getAProduct(getProductId))
+   
             },500)
 
         }            return false
@@ -135,27 +131,21 @@ edit={false}
     size={24}
     activeColor="#ffd700"
   />
-  <p className='mb-0 t-review'>( 2 avis )</p>
+  <p className='mb-0 t-review'>( {productStates?.ratings?.length} avis )</p>
 
     </div>
     <a className="review-btn" href='#review'>Écrire un avi</a>
 </div>
 <div className='py-3'>
-    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Type :</h3><p className='product-data'>Watch</p></div>
-    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Brand :</h3><p className='product-data'>{productStates?.brand}</p></div>
-    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Category :</h3><p className='product-data'>{productStates?.category}</p></div>
+    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Type :</h3><p className='product-data'>{productStates?.category}</p></div>
+ <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Category :</h3><p className='product-data'>{productStates?.category}</p></div>
+ <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Quantité :</h3><p className='product-data'>{productStates?.quantity}</p></div>
     <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Tags :</h3><p className='product-data'>{productStates?.tags}</p></div>
-    <div className='d-flex gap-10 align-items-center my-2'><h3 className='product-heading'>Disponibilité :</h3><p className='product-data'>In stock</p></div>
-    <div className='d-flex gap-10 flex-column mt-2 mb-3'><h3 className='product-heading'>Taille :</h3><div className='d-flex flex-wrap gap-15'>
-        <span className='badge border border-1 bg-white text-dark border-secondary'>S</span>
-        <span className='badge border border-1 bg-white text-dark border-secondary'>M</span>
-        <span className='badge border border-1 bg-white text-dark border-secondary'>L</span>
-        <span className='badge border border-1 bg-white text-dark border-secondary'>XL</span>
-        </div></div>
+
 {
     aleardyAdded == false && <>
-        <div className='d-flex gap-10 flex-column mt-2 mb-3'><h3 className='product-heading'>Coleur :</h3><Color setColor={setColor}
-    colorData={productStates?.color} /></div></>
+        <div className='d-flex gap-10 flex-column mt-2 mb-3'>
+</div></>
 }
     <div className='d-flex gap-15 align-items-center flex-row mt-2 mb-3'>
 {
@@ -173,10 +163,7 @@ edit={false}
     </div>
    
    <div className='d-flex align-items-center gap-15'>
-<div>
-    <a href=''><TbGitCompare className='fs-5 me-2' />
-Ajouter pour comparer</a>
-</div>
+
 <div>
     <a href=''><AiOutlineHeart className='fs-5 me-2' />Ajouter à Wishlist</a>
 </div>
@@ -227,7 +214,7 @@ edit={false}
     activeColor="#ffd700"
   />
   <p className='mb-0'>
-Basé sur 2 avis</p>
+Basé sur {productStates?.ratings?.length} avis</p>
   </div>    
                         </div>
 {orderedProduct && (<div>

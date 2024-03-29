@@ -55,7 +55,7 @@ navigate('/my-orders')
 useEffect(() => {
     let items = []
     for(let index=0 ; index< userCartState?.length; index++){
-        items.push({product:userCartState[index].productId._id, quantity:userCartState[index].quantity, color: userCartState[index].color._id, price : userCartState[index].price })
+        items.push({product:userCartState[index].productId._id, quantity:userCartState[index].quantity,  price : userCartState[index].price })
     }
  setCartProductState(items)
 },[userCartState]
@@ -252,7 +252,7 @@ setTimeout(()=>{
             </div>
             <div>
                 <h5 className='total-price'>{item?.productId?.title}</h5>
-                <p  className='total-price'> {item?.color?.title}</p>
+ 
             </div>
         </div>
         <div className='flex-grow-1'>

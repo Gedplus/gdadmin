@@ -42,8 +42,8 @@ const navigate  = useNavigate()
       });
  
       useEffect(() => {
-        if (authState.createUser !== null && authState.isError === false){
-          navigate('/login')
+        if (authState.createUser !== undefined  && authState.isError === false){
+navigate("/login")
         }
         },[authState])
 

@@ -18,6 +18,19 @@ return thunkAPI.rejectWithValue(error)
     }
 
  )
+ export const getAllcatBlogs = createAsyncThunk(
+    "blogs/get-cat", async(id,thunkAPI) =>{
+
+try{
+return await blogService.getBlogCat(id)
+}
+
+        catch(error){
+return thunkAPI.rejectWithValue(error)
+        }
+    }
+
+ )
  export const getABlogs = createAsyncThunk(
     "blog/get-blog", async(id,thunkAPI) =>{
 
@@ -36,6 +49,7 @@ return thunkAPI.rejectWithValue(error)
 
  const blogState = {
     blog:[],
+    catBlog:[],
     singleBlog:"",
     isError:false,
     isSuccess:false,
@@ -71,6 +85,21 @@ return thunkAPI.rejectWithValue(error)
             state.singleBlog = action.payload;
          
         }).addCase(getABlogs.rejected,(state,action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.isSuccess = false;
+            state.message = action.error;
+          
+        })
+        .addCase(getAllcatBlogs.pending,(state)=>{
+            state.isLoading = true;
+        }).addCase(getAllcatBlogs.fulfilled,(state, action)=>{
+            state.isLoading = false;
+            state.isError = false;
+            state.isSuccess = true;
+            state.catBlog = action.payload;
+         
+        }).addCase(getAllcatBlogs.rejected,(state,action) => {
             state.isLoading = false;
             state.isError = true;
             state.isSuccess = false;

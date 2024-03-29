@@ -3,22 +3,27 @@ import BreadCrumb from "../components/BreadCrumb"
 import Meta from "../components/Meta";
 import BlogCard from "../components/BlogCard";
 import { Link } from 'react-router-dom'
+
+import { useLocation, useNavigate } from "react-router-dom";
 import Container from "../components/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAllBlogs } from "../features/blogs/blogSlice";
+import { getAllBlogs, getAllcatBlogs } from "../features/blogs/blogSlice";
 import  moment from "moment";
-const Blog = ( ) => {
+const Blogs = ( ) => {
     const [categories, setCategorie] = useState([])
-    const blogState = useSelector((state) => state.blog.blog);
+
+    const blogState = useSelector((state) => state?.blog?.catBlog);
+    console.log(blogState ,"ddff")
     const dispatch = useDispatch();
-   
+    const location = useLocation();
+    const getBlogCatId = location.pathname.split("/")[2];
 useEffect(() => {
     getBlogs();
 },[]);
 
 const getBlogs = () =>{
-    dispatch(getAllBlogs());
+    dispatch(getAllcatBlogs(getBlogCatId));
 }
 console.log(blogState)
 useEffect(()=> {
@@ -77,4 +82,4 @@ useEffect(()=> {
         </>
     )
 }
-export default Blog;
+export default Blogs;

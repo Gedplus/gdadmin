@@ -64,8 +64,8 @@ useEffect (() => {
             <img src={item?.productId?.images[0]?.url} alt='product image' className='img-fluid' />
         </div>
         <div className='w-75'><p >{item?.productId.title}</p>
-        <p >Taille: S</p>
-        <p className='d-flex gap-3'>Couleur:  <ul className="colors ps-0"><li style={{backgroundColor: item?.color.title}}></li></ul> </p></div>
+
+    </div>
         
         </div>
         <div className='cart-col-2'>

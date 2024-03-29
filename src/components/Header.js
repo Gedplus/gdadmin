@@ -6,7 +6,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { array } from 'yup';
 import compare from '../images/compare.svg'
-import { getAProduct } from '../features/products/productSlice';
+import { getAProduct, getAllProducts } from '../features/products/productSlice';
 import { getUserCart } from '../features/user/userSlice';
 import user from '../images/user.svg'
 import wishlist from '../images/wishlist.svg'
@@ -25,6 +25,13 @@ const Header = () => {
   const [categories, setCategorie] = useState([])
   const navigate = useNavigate()
 console.log(productState,"prod")
+const getProducts = () =>{
+  dispatch(getAllProducts());
+}
+   
+useEffect(() => {
+    getProducts();
+},[]);
   useEffect(()=> {
 
     let newcategory= [];
@@ -95,7 +102,7 @@ const handleLogout = () =>{
     <div className='row'>
       <div className='col-2'>
         <h2>
-          <Link className='text-white'>Ged-com</Link>
+          <Link className='text-white'>Général décors</Link>
         </h2>
       </div>
       <div className='col-5'>
@@ -112,16 +119,14 @@ dispatch(getAProduct(selected[0]?.prod))
         paginate={paginate}
         minLength={2}
         labelKey={"name"}
-        placeholder="Search for Products here..."
+        placeholder="Rechercher des produits ici..."
       />
           <span className='input-group-text p-3' id='basic-addon2'><BsSearch className='fs-6'/></span>
         </div>
       </div>
       <div className='col-5'>
         <div className='header-upper-links d-flex align-items-center justify-content-between'>
-          <div>
-            <Link to="/compare-product" className='d-flex align-items-center gap-10 text-white'><img src= {compare} alt="compare" /><p className='mb-0'>Comparer <br/> Produits</p></Link>
-          </div>
+    
           <div>        <Link to="/wishlist" className='d-flex align-items-center gap-10 text-white' ><img src={wishlist} alt="wishlist" /><p className='mb-0'>Favourite  <br/> wishlist</p></Link></div>
           <div>         <Link to={authState?.user=== null || authState?.user=== undefined ? "/login" : "/my-profile" }className='d-flex align-items-center gap-10 text-white' >
             <img src={user} alt="user" />

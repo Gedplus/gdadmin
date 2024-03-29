@@ -34,7 +34,7 @@ useEffect(()=>{
    <div className='col-12 mt-3'>
 
 {OrderState && OrderState?.orders?.map((item, index) => {
-    return(   <div className='row my-3 pt-3'  style={{backgroundColor:"#febd69"}}key={index}>
+    return(   <div className='row my-3 pt-3'  style={{backgroundColor:"#B48B48"}}key={index}>
     <div className='col-3'>
         <p>{item?._id}</p>
     </div>

@@ -39,7 +39,7 @@ console.log({prodId})
     
     </div>
     <div className="product-details">
-        <h6 className="brand">{item?.brand}</h6>
+
         <h5 className="product-title">{item?.title}</h5>
         <ReactStars
         count={5}

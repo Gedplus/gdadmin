@@ -1,30 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsLinkedin , BsGithub , BsYoutube , BsInstagram } from 'react-icons/bs'
 import newsletter from '../images/newsletter.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProducts } from '../features/products/productSlice'
 const Footer = () => {
+  const [categories, setCategorie] = useState([])
+  const dispatch =useDispatch()
+  const productState = useSelector(state => state?.product?.product )
+  const getProducts = () =>{
+    dispatch(getAllProducts());
+  }
+     
+  useEffect(() => {
+      getProducts();
+  },[]);
+  useEffect(()=> {
+
+    let newcategory= [];
+
+
+    for(let index = 0 ; index <productState.length ; index++){
+        const element= productState[index];
+      
+        newcategory.push(element.category)
+        
+    
+    }
+  
+    setCategorie(newcategory)
+
+
+},[productState])
   return (
     <>
-      <footer className='py-4'>
-        <div className='container-xxl'>
-          <div className='row align-items-center'>
-            <div className='col-5'>
-              <div className='footer-top-data  d-flex gap-30 align-items-center'>
-                <img src={newsletter} alt='newsletter' />
-                <h2 className='mb-0 text-white'>S'inscrire aux Newsletters</h2>
-              </div>
-            </div>
-            <div className='col-7'>     <div className='input-group '>
-          <input type='text'
-          className='form-control py-1'
-          placeholder='Your Email Address'
-          aria-label='Your Email Address'
-          aria-describedby='basic-addon2' />
-          <span className='input-group-text p-2' id='basic-addon2'>S'abonner</span>
-        </div></div>
-          </div>
-        </div>
-      </footer>
+   
       <footer className='py-4'>
 <div className='container-xxl'>
   <div className='row'>
@@ -73,10 +83,10 @@ const Footer = () => {
 </div></div>
     <div className='col-2'><h4 className='text-white mb-4'>Liens rapides</h4>
     <div className='footer-links d-flex flex-column'>
-      <Link className="text-white py-2 mb-1">Laptops</Link>
-      <Link className="text-white py-2 mb-1">Headphones</Link>
-      <Link className="text-white py-2 mb-1">Tablets</Link>
-      <Link className="text-white py-2 mb-1">Watch</Link></div></div>
+
+    {categories && [...new Set(categories)].map((item, index) =>{
+    return ( <Link className="text-white py-2 mb-1" to={`/store/${item}`} >{item} </Link>)
+     })}</div></div>
   </div>
 </div>
 

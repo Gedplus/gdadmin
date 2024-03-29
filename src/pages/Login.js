@@ -63,7 +63,7 @@ if (authState.user !== null && authState.isError === false){
                         <div> <Link to="/forgot-password">Mot de passe oublié</Link>
                         <div className='mt-3 d-flex justify-content-center gap-15 align-items-center'>
                             <button className='button border-0' type='submit'>Login</button>
-                            <Link className='button signup'to="/signup">SignUp</Link>
+                            <Link className='button signup' to="/signup">SignUp</Link>
                         </div>
                         
                         </div>

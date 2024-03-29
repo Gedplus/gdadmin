@@ -26,6 +26,7 @@ import { OpenRoutes } from './routing/OpenRoutes';
 import Orders from './pages/orders';
 import Profile from './pages/Profile';
 import StoreCategory from './pages/ShopCategory';
+import Blogs from './pages/Blogs';
 
 function App() { 
   return (
@@ -33,12 +34,14 @@ function App() {
    <Routes>
     <Route path='/' element={<Layout/>}>
     <Route index element={ <Home/>} />
-    <Route path='signup' element={<SignUp/> } />
+
     <Route path='about' element={ <About/>} />
     <Route path='contact' element={ <Contact/>} />
     <Route path='store' element={ <OurStore/>} />
+    
     <Route path='store/:id' element={ <StoreCategory/>} />
     <Route path='blogs' element={ <Blog/>} />
+    <Route path='blogs/:id' element={ <Blogs/>} />
     <Route path='blog/:id' element={ <SingleBlog/>} />
     <Route path='product/:id' element={ <SingleProduct/>} />
     <Route path='compare-product' element={ <CompareProduct/>} />
@@ -48,6 +51,7 @@ function App() {
     <Route path='login' element={ <OpenRoutes><Login/></OpenRoutes>} />
     <Route path='forgot-password' element={ <Forgetpassword/>} />
     <Route path='reset-password/:token' element={ <Resetpassword/>} />
+    <Route path='signup' element={<SignUp/> } />
     <Route path='privacy-policy' element={ <PrivatePolicy/>} />
     <Route path='refund-policy' element={ <RefundPolicy/>} />
     <Route path='shipping-policy' element={ <ShippingPolicy/>} />

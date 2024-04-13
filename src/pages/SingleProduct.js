@@ -58,8 +58,8 @@ console.log(aleardyAdded)
     const UploadCart = () =>{
 
             dispatch(addProdToCart({productId: productStates?._id , quantity , price: productStates?.price}))
-            
-            window.location.href=`/cart`
+            setTimeout(()=>{
+            window.location.href=`/cart` },300) 
 
     }
     const props = {width: 400, height: 600, zoomWidth: 600,

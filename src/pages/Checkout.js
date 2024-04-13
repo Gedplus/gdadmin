@@ -48,7 +48,7 @@ useEffect (() => {
 useEffect(() =>{
 
     if(authState?.orderedProduct  !== null && authState?.orderedProduct?.success == true){
-navigate('/my-orders')
+        navigate('/my-orders')
     }
 },[authState])
 
@@ -96,7 +96,7 @@ setShippingInfo(values)
 
 setTimeout(()=>{
    
-    AddBonCommandeEntéte ( {codcli:"001", raisoc:`${values?.firstName}` , datfac: dateFormat(now, "isoDateTime").slice(0,10)})
+    AddBonCommandeEntéte ( {codcli:"40082", raisoc:`${values?.firstName}` , datfac: dateFormat(now, "isoDateTime").slice(0,10)})
 },300)
 
 
@@ -129,7 +129,7 @@ setTimeout(()=>{
 setTimeout(()=>{
   
     dispatch(emptyCartu())
-},300)
+},600) 
 setTimeout(()=>{
   
     Switch()

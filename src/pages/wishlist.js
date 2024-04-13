@@ -36,7 +36,7 @@ Pas de données</div>}
             <div className="wishlist-card position-relative">
             <img src={cross}  onClick={()=>{removeFromWishlist(item?._id)}} alt="cross" className="position-absolute cross img-fluid" />
             <div className="wishlist-card-image">
-                <img src={item?.images[0].url} alt="watch" className="img-fluid w-100" />
+                <img src={item?.images[0]?.url} alt="watch" className="img-fluid w-100" />
             </div>
        <div className=" py-3 px-3" >
        <h5 className="title">{item?.title}</h5>

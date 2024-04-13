@@ -169,7 +169,7 @@ if(item?.tags === "featured"){
 
 
 <div className="product-image">
-<img src={item?.images[0].url} className="img-fluid  mx-auto" width={200} alt="product image" />
+<img src={item?.images[0]?.url} className="img-fluid  mx-auto" width={200} alt="product image" />
 <img src={watch} className="img-fluid mx-auto" width={200}   alt="product image" />
 
 </div>
@@ -226,7 +226,7 @@ if(item?.tags === "popular"){
 
 
 <div className="product-image">
-<img src={item?.images[0].url} className="img-fluid  mx-auto" width={200} alt="product image" />
+<img src={item?.images[0]?.url} className="img-fluid  mx-auto" width={200} alt="product image" />
 <img src={watch} className="img-fluid mx-auto" width={200}   alt="product image" />
 
 </div>

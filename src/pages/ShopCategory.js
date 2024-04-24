@@ -14,10 +14,12 @@ import gr2 from "../images/gr2.svg"
 import gr from "../images/gr.svg"
 import gr3 from "../images/gr3.svg"
 import gr4 from "../images/gr4.svg"
+import {  useParams } from 'react-router-dom';
 const StoreCategory = () => {
     const[grid , setGrid] = useState(4);
     const location = useLocation();
     const getCategory = location.pathname.split("/")[2];
+    const { id } = useParams();
     const productState = useSelector((state) => state.product.product);
 
 const [categories, setCategorie] = useState([])
@@ -30,9 +32,9 @@ const [maxPrice, setMaxPrice] = useState(null)
 const [sort , setSort] = useState(null)
 useEffect(()=>{
 
-    setCategory(getCategory)
-},[getCategory])
-console.log(getCategory)
+    setCategory(id)
+},[id])
+console.log(id)
 useEffect(()=> {
  
     let newcategory= [];

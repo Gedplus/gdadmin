@@ -12,11 +12,11 @@ import  moment from "moment";
 import { getAllBlogs } from '../features/blogs/blogSlice'
 import { getAllProducts } from '../features/products/productSlice'
 import ReactStars from "react-rating-stars-component";
-import banner1 from "../images/main-banner-1.jpg"
-import catbanner01 from "../images/catbanner-01.jpg"
-import catbanner02 from "../images/catbanner-02.jpg"
-import catbanner03 from "../images/catbanner-03.jpg"
-import catbanner04 from "../images/catbanner-04.jpg"
+import banner1 from "../images/slid1.png"
+import catbanner01 from "../images/slid2.png"
+import catbanner02 from "../images/slid3.png"
+import catbanner03 from "../images/slid4.png"
+import catbanner04 from "../images/slid5.png"
 import prodcompare from "../images/prodcompare.svg"
 import famous1 from "../images/famous-1.webp"
 import famous2 from "../images/famous-2.webp"
@@ -65,10 +65,7 @@ console.log(productState,"prod")
         <div className='main-banner position-relative '>
           <img src={banner1} className="img-fluid rounded-3" alt='mein banner' />
           <div className='main-banner-content position-absolute'>
-<h4>SUPERCHARGED FOR PROS.</h4>
-<h5>iPad S13+ Pro</h5>
-<p>From $999.00 or $41.62/mo.</p>
-<Link className='button'>BUY NOW</Link>
+
 
 
           </div>
@@ -79,9 +76,7 @@ console.log(productState,"prod")
 <div className='small-banner position-relative '>
           <img src={catbanner01} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
-<h4>Best Sake</h4>
-<h5>iPad S13+ Pro.</h5>
-<p>From $999.00 <br/>or $41.62/mo.</p>
+
 
 
 
@@ -90,9 +85,7 @@ console.log(productState,"prod")
         <div className='small-banner position-relative '>
           <img src={catbanner02} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
-<h4>NEW ARRIVAL</h4>
-<h5>But IPad Alr</h5>
-<p>From $999.00<br/> or $41.62/mo.</p>
+
 
 
 
@@ -101,9 +94,7 @@ console.log(productState,"prod")
         <div className='small-banner position-relative '>
           <img src={catbanner03} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
-<h4>NEW ARRIVAL</h4>
-<h5>But IPad Alr</h5>
-<p>From $999.00<br/> or $41.62/mo.</p>
+
 
 
 
@@ -112,9 +103,7 @@ console.log(productState,"prod")
         <div className='small-banner position-relative '>
           <img src={catbanner04} className="img-fluid rounded-3" alt='mein banner' />
           <div className='small-banner-content position-absolute'>
-<h4>NEW ARRIVAL</h4>
-<h5>But IPad Alr</h5>
-<p>From $999.00<br/> or $41.62/mo.</p>
+
 
 
 
@@ -184,7 +173,7 @@ size={24}
 activeColor="#ffd700"
 />
 
-<p className="price">$ {item?.price}</p>
+<p className="price"> {item?.price} dt</p>
 </div>
 
 <div className="action-bar position-absolute">
@@ -241,7 +230,7 @@ size={24}
 activeColor="#ffd700"
 />
 
-<p className="price">$ {item?.price}</p>
+<p className="price"> {item?.price} dt</p>
 </div>
 
 <div className="action-bar position-absolute">

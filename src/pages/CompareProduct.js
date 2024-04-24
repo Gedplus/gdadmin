@@ -19,7 +19,7 @@ return (<>
 
 <div className="compare-product-details">
     <h5 className="title">Olympus pen E-PL9 kit with 14-42, EZ lens, camera</h5>
-    <h6 className="price mb-3 mt-3">$ 100</h6>
+    <h6 className="price mb-3 mt-3"> 100 dt </h6>
 
 <div>
 <div className="product-detail">
@@ -61,7 +61,7 @@ return (<>
 
 <div className="compare-product-details">
     <h5 className="title">Olympus pen E-PL9 kit with 14-42, EZ lens, camera</h5>
-    <h6 className="price mb-3 mt-3">$ 100</h6>
+    <h6 className="price mb-3 mt-3">100 dt</h6>
 
 <div>
 <div className="product-detail">

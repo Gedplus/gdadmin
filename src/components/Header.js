@@ -87,11 +87,11 @@ const handleLogout = () =>{
   <div className='container-xxl'>
     <div className='row'>
       <div className='col-6'>
-        <p className='text-white mb-0' >Livraisons gratuits de plus de 100 $ et retours gratuits</p>
+        <p className='text-white mb-0' >Livraisons gratuits de plus de 100 dt et retours gratuits</p>
       </div>
       <div className='col-6'>
         <p className='text-end text-white mb-0'>
-          Hotline: <a className='text-white' href="tel:+91 8264954234">+91 8264954234</a>
+        Appelez-nous au : <a className='text-white' href="tel: ( +216 ) 24 924 000"> ( +216 ) 24 924 000</a>
         </p>
       </div>
     </div>
@@ -127,7 +127,7 @@ dispatch(getAProduct(selected[0]?.prod))
       <div className='col-5'>
         <div className='header-upper-links d-flex align-items-center justify-content-between'>
     
-          <div>        <Link to="/wishlist" className='d-flex align-items-center gap-10 text-white' ><img src={wishlist} alt="wishlist" /><p className='mb-0'>Favourite  <br/> wishlist</p></Link></div>
+          <div>        <Link to="/wishlist" className='d-flex align-items-center gap-10 text-dark' ><img src={wishlist} alt="wishlist" /><p className='mb-0 text-white'>Favourite  <br/> wishlist</p></Link></div>
           <div>         <Link to={authState?.user=== null || authState?.user=== undefined ? "/login" : "/my-profile" }className='d-flex align-items-center gap-10 text-white' >
             <img src={user} alt="user" />
             {authState?.user === null  || authState?.user=== undefined  ?     <p className='mb-0'>Log in <br/> Mon compte</p> :     <p className='mb-0'>Bienvenu {authState?.user?.firstname} </p> }
@@ -135,7 +135,7 @@ dispatch(getAProduct(selected[0]?.prod))
         </Link></div>
           <div>         <Link to="/cart" className='d-flex align-items-center gap-10 text-white'><img src={cart} alt="cart" />
           
-          <div className='d-flex flex-column gap-10'><span className='badge bg-white text-dark '>{userCartState?.length ? userCartState?.length : 0}</span> <p className='mb-0'>$ {total ? total : 0}</p> </div></Link></div>
+          <div className='d-flex flex-column gap-10'><span className='badge bg-white text-dark '>{userCartState?.length ? userCartState?.length : 0}</span> <p className='mb-0'> {total ? total : 0} dt</p> </div></Link></div>
         </div>
       </div>
     </div>
@@ -155,7 +155,7 @@ dispatch(getAProduct(selected[0]?.prod))
               
               <img src='images/menu.svg' alt='' />
               
-              <span className='me-5 d-inline-block' >Catégories de boutique</span></button>
+              <span className='me-5 d-inline-block text-dark' >Catégories de boutique</span></button>
 <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
 {categories && [...new Set(categories)].map((item, index) =>{
     return        <li key={index} ><Link className='dropdown-item text-white' to={`/store/${item}`} >{item}</Link></li>
@@ -167,12 +167,12 @@ dispatch(getAProduct(selected[0]?.prod))
           </div>
           <div className='menu-links'>
             <div className='d-flex align-items-center gap-15'>
-<NavLink  className="text-white" to="/">Acceuil</NavLink>
-<NavLink className="text-white"  to="/store">Notre magasin</NavLink>
-<NavLink className="text-white"  to="/my-orders">Mes commandes</NavLink>
-<NavLink className="text-white"  to="/blogs">Blogs</NavLink>
-<NavLink  className="text-white"  to="/contact">Contact</NavLink>
-<button onClick={handleLogout}  className='border border-0 bg-transparent text-white text-uppercase'type='button'>Logout</button>
+<NavLink  className="text-dark" to="/">Acceuil</NavLink>
+<NavLink className="text-dark"  to="/store">Notre magasin</NavLink>
+<NavLink className="text-dark"  to="/my-orders">Mes commandes</NavLink>
+<NavLink className="text-dark"  to="/blogs">Blogs</NavLink>
+<NavLink  className="text-dark"  to="/contact">Contact</NavLink>
+<button onClick={handleLogout}  className='border border-0 bg-transparent text-dark text-uppercase'type='button'>Logout</button>
             </div>
           </div>
 

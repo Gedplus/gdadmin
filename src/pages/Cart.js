@@ -99,7 +99,7 @@ useEffect (() => {
       <Link to="/product" className="button">Continuer vos achats</Link>
       </div>
       {(total !== null || total !== 0) &&      <div className='d-flex flex-column align-items-end'>
-        <h4>SubTotal: $ {total}</h4>
+        <h4>SubTotal:  {total} dt</h4>
         <p>Taxes et frais d'expédition calculés à la caisse</p>
         <Link to="/checkout" className='button'>checkout</Link>
       </div>}

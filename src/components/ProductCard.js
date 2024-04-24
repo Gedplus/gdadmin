@@ -49,7 +49,7 @@ console.log({prodId})
         activeColor="#ffd700"
       />
       <p className={`description ${grid === 12 ? "d-block": "d-none"}`} dangerouslySetInnerHTML={{__html:item?.description}}></p>
-        <p className="price">$ {item?.price}</p>
+        <p className="price"> {item?.price} dt</p>
     </div>
     
     <div className="action-bar position-absolute">

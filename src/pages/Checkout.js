@@ -256,7 +256,7 @@ setTimeout(()=>{
             </div>
         </div>
         <div className='flex-grow-1'>
-            <h5 className='total'>$ {item?.price * item?.quantity}</h5>
+            <h5 className='total'> {item?.price * item?.quantity} dt</h5>
         </div>
         </div>)
     })
@@ -270,18 +270,18 @@ setTimeout(()=>{
 </div>
 <div className='border-bottom py-4'><div className='d-flex justify-content-between align-items-center'>
     <p  className='total'>Subtotal</p>
-    <p className='total-price'>$ {total ? total : 0}</p>
+    <p className='total-price'> {total ? total : 0} dt</p>
 </div>
 <div className='d-flex justify-content-between align-items-center'>
     <p className='mb-0 total'>Expédition</p>
-    <p className='mb-0 total-price'>$ 5</p>
+    <p className='mb-0 total-price'> 5 dt</p>
 </div>
 
 
 </div>
 <div className='d-flex justify-content-between align-items-center border-bottom py-4'>
     <h4 className='total'>Total</h4>
-    <h5 className='total-price'>$ {total ? total +5: 0}</h5>
+    <h5 className='total-price'> {total ? total +5: 0} dt</h5>
 </div>
 
                 </div>

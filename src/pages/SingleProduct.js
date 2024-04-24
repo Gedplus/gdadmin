@@ -122,7 +122,7 @@ console.log(aleardyAdded)
 <div className='border-bottom'>    <h3 className='title'>
 {productStates?.title}</h3></div>
 <div className='border-bottom py-3'>
-    <p className='price'>$ {productStates?.price}</p>
+    <p className='price'>{productStates?.price}dt </p>
     <div className='d-flex align-items-center gap-10'>
     <ReactStars
     count={5}
@@ -303,7 +303,7 @@ size={24}
 activeColor="#ffd700"
 />
 
-<p className="price">$ {item?.price}</p>
+<p className="price"> {item?.price} dt</p>
 </div>
 
 <div className="action-bar position-absolute">

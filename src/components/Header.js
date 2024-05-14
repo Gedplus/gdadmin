@@ -87,11 +87,11 @@ const handleLogout = () =>{
   <div className='container-xxl'>
     <div className='row'>
       <div className='col-6'>
-        <p className='text-white mb-0' >Livraisons gratuits de plus de 100 dt et retours gratuits</p>
+        <p className='text-white mb-0' >Livraisons gratuits de plus de 200 dt et retours gratuits</p>
       </div>
       <div className='col-6'>
         <p className='text-end text-white mb-0'>
-        Appelez-nous au : <a className='text-white' href="tel: ( +216 ) 24 924 000"> ( +216 ) 24 924 000</a>
+        Appelez-nous au : <a className='text-white' href="tel: ( +216 ) 58 340 618 "> ( +216 ) 58 340 618 / ( +216 ) 58 340 605</a>
         </p>
       </div>
     </div>

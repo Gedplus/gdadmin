@@ -69,7 +69,7 @@ useEffect (() => {
         
         </div>
         <div className='cart-col-2'>
-        <h5 className='price'>${item?.price}</h5>
+        <h5 className='price'>{item?.price}dt</h5>
         
         
         </div>
@@ -84,7 +84,7 @@ useEffect (() => {
         
         </div>
         <div className='cart-col-4'>
-        <h5 className='price'>${item?.price  * item?.quantity} </h5>
+        <h5 className='price'>{item?.price  * item?.quantity}dt </h5>
         </div>
         </div>)
     })

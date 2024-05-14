@@ -273,15 +273,15 @@ setTimeout(()=>{
     <p className='total-price'> {total ? total : 0} dt</p>
 </div>
 <div className='d-flex justify-content-between align-items-center'>
-    <p className='mb-0 total'>Expédition</p>
-    <p className='mb-0 total-price'> 5 dt</p>
+    <p className='mb-0 total'>Expédition gratuits</p>
+
 </div>
 
 
 </div>
 <div className='d-flex justify-content-between align-items-center border-bottom py-4'>
     <h4 className='total'>Total</h4>
-    <h5 className='total-price'> {total ? total +5: 0} dt</h5>
+    <h5 className='total-price'> {total ? total : 0} dt</h5>
 </div>
 
                 </div>
